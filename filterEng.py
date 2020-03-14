@@ -35,7 +35,7 @@ df_clean['if_en'] = df_clean['lyrics'].apply(detect_en)
 
 
 sns_violinplot_word_count = sns.violinplot(x=df_clean["word_count"])
-sns_violinplot_word_count.savefig("./word_count_violinplot.png")
+# sns_violinplot_word_count.savefig("./word_count_violinplot.png")
 fig = sns_violinplot_word_count.get_figure()
 fig.savefig("./word_count_violinplot.png")
 
