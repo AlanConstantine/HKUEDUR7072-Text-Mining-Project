@@ -1,0 +1,116 @@
+# coding: utf-8
+import numpy as np
+import pandas as pd
+df = pd.read_csv('./lyrics.csv')
+df = df.replace({'\n': ' '}, regex=True)
+df['word_count'] = df['lyrics'].str.split().str.len()
+df.head()
+df['word_count'].groupby(df['genre']).describe()
+df = df[df['word_count'] != 1]
+df['word_count'].groupby(df['genre']).describe()
+df100 = df.loc[df['word_count'] <= 100]
+df100.head()
+df1000 = df.loc[df['word_count'] >= 1000]
+del df1, df100, df1000 
+del df100, df1000 
+df_clean = df[df['word_count'] >= 100]
+df_clean = df[df['word_count'] <= 1000]
+df_clean['word_count'].groupby(df_clean['genre']).describe()
+df_clean.shape
+df_clean.info()
+#check the overall distribution of the cleaned dataset
+import seaborn as sns
+pip3 install seaborn
+cmd()
+!pip3 install seaborn
+import seaborn as sns
+sns_violinplot_word_count = sns.violinplot(x=df_clean["word_count"])
+sns_violinplot_word_count.savefig("./word_count_violinplot.png")
+fig = sns_violinplot_word_count.get_figure()
+fig.savefig("./word_count_violinplot.png")
+import matplotlib as mpl
+mpl.rc("figure", figsize=(12, 6))
+box_plot = sns.boxplot(x="genre", y="word_count", data=df_clean)
+fig = box_plot.get_figure()
+fig.savefig("./word_count_boxplot.png")
+mpl.rc("figure", figsize=(15, 10))
+box_plot = sns.boxplot(x="genre", y="word_count", data=df_clean)
+fig = box_plot.get_figure()
+fig.savefig("./word_count_boxplot.png")
+mpl.rc("figure", figsize=(20, 10))
+box_plot = sns.boxplot(x="genre", y="word_count", data=df_clean)
+fig = box_plot.get_figure()
+fig.savefig("./word_count_boxplot.png")
+mpl.rc("figure", figsize=(30, 10))
+box_plot = sns.boxplot(x="genre", y="word_count", data=df_clean)
+fig = box_plot.get_figure()
+fig.savefig("./word_count_boxplot.png")
+genre = df_clean.groupby(['genre'],as_index=False).count()
+genre2 = genre[['genre','song']]
+genre2
+%save -r init_eda 1-999999
+ls
+!cat init_eda.ipy
+import nltk
+from nltk.corpus import words as nltk_words
+def is_english_word(word):
+        # creation of this dictionary would be done outside of 
+            #     the function because you only need to do it once.
+                dictionary = dict.fromkeys(nltk_words.words(), None)
+                    try:
+                                x = dictionary[word]
+        return True
+def if_en(word):
+    word_dict = dict.fromkeys(nltk_words.words(), None)
+    try:
+        x = dictionary[word]
+        return True
+    except KeyError:
+        return False
+        
+import enchant
+import enchant
+from langdetect import detect
+detect("War doesn't show who's right, just who's left.")
+def detect_en(lyrics):
+    if detect()
+detect_en("War doesn't show who's right, just who's left.")
+def detect_en(lyrics):
+    if detect(lyrics) == 'en':
+        return True
+    else:
+        return False
+        
+df_clean['if_en'] = df_clean['lyrics'].apply(detect_en)
+def detect_en(lyrics):
+    try:
+        if detect(lyrics) == 'en':
+            return True
+        else:
+            return False
+    Except Exception as e:
+        return False
+
+        
+def detect_en(lyrics):
+    try:
+        if detect(lyrics) == 'en':
+            return True
+        else:
+            return False
+    except Exception as e:
+        return False
+
+        
+df_clean['if_en'] = df_clean['lyrics'].apply(detect_en)
+!nohup python3 extractEmotion.py > log &
+!ps -ef|grep python3
+ls
+!cat log
+!nohup python3 extractEmotion.py > log &
+!cat log
+!ps -ef|grep python3
+!cat log
+!cat log
+!cat log
+%save -r preprocessing_eda 1-999999
