@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 import time
+from datetime import datetime
 
 from random import randint
 
@@ -24,6 +25,7 @@ import json
 
 import paralleldots
 paralleldots.set_api_key("OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI") # laualan@hku.hk
+print('Current key:', 'OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI', 1)
 
 keys = [
 #         'OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI', # laualan@hku.hk
@@ -31,7 +33,11 @@ keys = [
         'JIkATWugt8LIP3PbQrdm6cfm1hZ4DbouVoyw8oAQqhI', # 394414515@qq.com
         'Vf9mBAl7wp0s8Fl43E9aDtVPOZhftIAv0pYJvIlYGD4', # 806124854@qq.com
         '8gAwuDOEE92zakGfDXc6PoCtqhVop0htEnEd4IHFe0U', # yleun.lau@gmail.com
-        'xTNXoCxtbg36jCgT6ArKgyOPJtnJdf5QQpEEKYoSwu8' # alanconstantinelau@gmail.com
+        'xTNXoCxtbg36jCgT6ArKgyOPJtnJdf5QQpEEKYoSwu8', # alanconstantinelau@gmail.com
+        'INsEQXjCWuaZJQyzEbHg5Kw6C8liJiHf2DXOHqmHG70', # 122075300@qq.com
+        'jpctHohVPtW9QlezbIw4hZ8Ftwh8kXD14U7JlR0WRQo', # 274038499@qq.com
+        'qrJoLzvIQqU1ygqtzWDw2JC59zkBsPqSzLLIeRSxLHA', # 562040899@qq.com
+        'UtEqIoCXWJN5XiyfgpXJ7gg23LgOu7jVQjl36Xg7UmQ' # wgj0905@hku.hk
         ]
 
 
@@ -91,7 +97,6 @@ lyric_emo = df['lyrics'].tolist()
 index_list = df.index.tolist()
 
 total = len(index_list)
-count = 1
 error_count = 0
 key_count = 0
 
@@ -103,7 +108,7 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
         if 'code' in response and key_count < len(keys):
             # if response['code'] == 403:
             key_count += 1
-            print('Current key:', keys[key_count])
+            print('Current key:', keys[key_count], key_count)
             paralleldots.set_api_key(keys[key_count])
             response = paralleldots.emotion(lyrics)
         elif key_count == len(keys):
@@ -115,9 +120,7 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
             update_error(str(index) + '\t' + str(response['message']))
             break
         finished_index = update_emo(index, response)
-#         TODO
-        print(finished_index, 'done: ', str(round((count/total)*100, 5)))
-        count += 1
+        print(finished_index, 'done: ', str(round(((index-1)/total)*100, 5)), str(datetime))
     except Exception as e:
         update_error(str(index) + '\t' + str(e))
         error_count += 1
