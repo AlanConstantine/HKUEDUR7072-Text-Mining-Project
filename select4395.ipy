@@ -1,0 +1,75 @@
+# coding: utf-8
+!ls
+import pandas as pd
+df = pd.read_csv('./reindex_df.csv')
+df.shape
+df.head()
+df = df[:5000]
+import pandas as pd
+import numpy as np
+import time
+from random import randint
+import re
+import string
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tokenize import RegexpTokenizer
+from nltk.corpus import stopwords
+from nltk.stem.porter import *
+stemmer = PorterStemmer()
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.utils import shuffle
+import json
+def pre_represent(ly):
+    ly_tokenized_words = word_tokenize(ly)
+    filtered_stopwords_ly = list(filter(lambda word: word not in stopwords.words('english'), ly_tokenized_words))
+    punctutaion_ly = [stemmer.stem(w) for w in filtered_stopwords_ly if not re.fullmatch('[' + string.punctuation + ']+', w)]
+    return ' '.join(punctutaion_ly)
+    
+df['represent'] = df['lyrics'].apply(pre_represent)
+def second_stpws(ly):
+    ly_tokenized_words = word_tokenize(ly)
+    filtered_stopwords_ly = list(filter(lambda word: word not in stopwords, ly_tokenized_words))
+    return ' '.join(filtered_stopwords_ly)
+    
+from collections import Counter
+corpus_text = ' '.join(df['represent'].tolist())
+ly_tokenized_words = word_tokenize(corpus_text)
+word_count = Counter(ly_tokenized_words).most_common()
+filtered100stpws = [v[0] for v in list(filter(lambda v: v[1] <= 100, word_count))]
+stopwords = nltk.corpus.stopwords.words('english')
+stopwords.extend(filtered100stpws)
+df['represent_2nd'] = df['represent'].apply(second_stpws)
+corpus = df['represent_2nd'].tolist()
+tfidf_matrix = vectorizer.fit_transform(corpus)
+vectorizer = TfidfVectorizer(stop_words='english')
+tfidf_matrix = vectorizer.fit_transform(corpus)
+df_tfidf = pd.DataFrame(tfidf_matrix.toarray(), columns=vectorizer.get_feature_names())
+df_tfidf.head()
+df_tfidf['index'] = df_tfidf.index
+df.merge(df_tfidf, on='index', how='left').head()
+df.columns
+df.shape()
+df.shape
+df['word_count_2nd'] = df['represent_2nd'].str.split().str.len()
+df['word_count_2nd'].describe
+df['word_count_2nd'].describe()
+df50 = df[df['word_count'] > 50]
+df50.shape
+df100 = df[df['word_count'] > 100]
+df100.shape
+df = df100
+corpus = df['represent_2nd'].tolist()
+df.shape
+tfidf_matrix = vectorizer.fit_transform(corpus)
+df_tfidf = pd.DataFrame(tfidf_matrix.toarray(), columns=vectorizer.get_feature_names())
+df_tfidf.shape
+df_tfidf['index'] = df_tfidf.index
+df.columns
+df.rename(columns={'index': 'index_df', 'song': 'c'})
+df.rename(columns={'year': 'year_df', 'c': 'song_df', 'artist': 'artist_df'})
+df.rename(columns={'year': 'year_df', 'c': 'song_df', 'artist': 'artist_df', 'index': 'index_df', 'genre': 'genre_df', 'lyrics': 'lyrics_df'})
+df_tfidf.to_csv('df_tfidf4395.csv', index = False)
+df.to_csv('df_4395.csv', index = False)
+df.shape
+%save -r select4395 1-99999
