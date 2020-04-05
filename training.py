@@ -164,7 +164,11 @@ def svm_model(xtrain, xtest, ytrain, ytest, batch):
                   'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1], 
                  'kernel': ['linear', 'poly', 'rbf', 'sigmoid']}
     clf = GridSearchCV(
-        SVC(), param_grid, scoring=scoring
+        SVC(), 
+        param_grid, 
+        scoring=scoring, 
+        n_jobs=-1, 
+        cv=10
     )
     searcher = clf.fit(xtrain, ytrain)
     estimator = searcher.best_estimator_
@@ -189,8 +193,12 @@ def lg_model(xtrain, xtest, ytrain, ytest, batch):
     param_grid = {'penalty': ['l1', 'l2', 'elasticnet'],
                   'max_iter': range(10, 50, 10)}
     clf = GridSearchCV(
-        LogisticRegression(multi_class='auto', n_jobs=-1), param_grid, scoring=scoring
-    )
+                        LogisticRegression(multi_class='auto', n_jobs=-1), 
+                        param_grid, 
+                        scoring=scoring,
+                        n_jobs=-1, 
+                        cv=10
+                      )
     searcher = clf.fit(xtrain, ytrain)
     estimator = searcher.best_estimator_
     f1, kappa = measures(estimator.predict(xtest), ytest)
@@ -213,7 +221,9 @@ def dt_model(xtrain, xtest, ytrain, ytest, batch):
     t0 = time()
     param_grid = {'min_samples_split': range(2, 403, 20)}
     clf = GridSearchCV(
-        tree.DecisionTreeClassifier(), param_grid, scoring=scoring
+        tree.DecisionTreeClassifier(), param_grid, scoring=scoring,
+                        n_jobs=-1, 
+                        cv=10
     )
     searcher = clf.fit(xtrain, ytrain)
     estimator = searcher.best_estimator_
@@ -228,7 +238,6 @@ def dt_model(xtrain, xtest, ytrain, ytest, batch):
       'wb') as sfm:
         pickle.dump(estimator, sfm)
     return searcher, estimator, clf, f1, kappa
-
 # %% [markdown]
 # ### Naive Bayes
 
@@ -236,7 +245,9 @@ def dt_model(xtrain, xtest, ytrain, ytest, batch):
 def nb_model(xtrain, xtest, ytrain, ytest, batch):
     t0 = time()
     param_grid = {}
-    clf = GridSearchCV(GaussianNB(), param_grid)
+    clf = GridSearchCV(GaussianNB(), param_grid,
+                        n_jobs=-1, 
+                        cv=10)
     searcher = clf.fit(xtrain, ytrain)
     estimator = searcher.best_estimator_
     f1, kappa = measures(estimator.predict(xtest), ytest)
@@ -261,7 +272,9 @@ def nn_model(xtrain, xtest, ytrain, ytest, batch):
                  }
     if batch == 'lyrics':
         hidden_layer_sizes=(100, 200, 100, 50)
-    clf = GridSearchCV(MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, random_state=905, early_stopping=True), param_grid)
+    clf = GridSearchCV(MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, random_state=905, early_stopping=True), param_grid,
+                        n_jobs=-1, 
+                        cv=10)
     searcher = clf.fit(xtrain, ytrain)
     estimator = searcher.best_estimator_
     f1, kappa = measures(estimator.predict(xtest), ytest)
