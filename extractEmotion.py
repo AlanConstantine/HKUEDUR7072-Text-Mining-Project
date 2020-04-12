@@ -42,7 +42,7 @@ keys = [
 
 
 # %%
-df = pd.read_csv('./reindex_df.csv')
+df = pd.read_csv('/home/alan/EDUR7072project/reindex_df.csv')
 print(df.shape)
 
 
@@ -50,23 +50,23 @@ print(df.shape)
 # %%
 def update_emo(index, emo):
     try:
-        with open(r'./lyrics_emotion.json', 'r') as fn:
+        with open(r'/home/alan/EDUR7072project/lyrics_emotion.json', 'r') as fn:
             emo_dict = json.load(fn)
         emo_dict[index] = emo
     except Exception as e:
         emo_dict = {}
         emo_dict[index] = emo
-    with open('./lyrics_emotion.json', 'w') as fp:
+    with open('/home/alan/EDUR7072project/lyrics_emotion.json', 'w') as fp:
         json.dump(emo_dict, fp)
     return index
         
 def update_error(index):
-    with open(r'./error', 'a') as fn:
+    with open(r'/home/alan/EDUR7072project/error', 'a') as fn:
         fn.write(str(index) + '\n')
         
 def get_stopindex():
     try:
-        with open(r'./lyrics_emotion.json', 'r') as fn:
+        with open(r'/home/alan/EDUR7072project/lyrics_emotion.json', 'r') as fn:
                 emo_dict = json.load(fn)
         return max(list(map(lambda e: int(e), list(emo_dict.keys()))))
     except Exception as e:

@@ -10,3 +10,77 @@
 5262	Stop.
 7481	list index out of range
 7482	Stop.
+7492	list index out of range
+7493	Stop.
+9767	list index out of range
+9768	Stop.
+9777	list index out of range
+9778	Stop.
+9786	list index out of range
+9787	Stop.
+9795	list index out of range
+9796	Stop.
+12100	list index out of range
+12101	Stop.
+12111	list index out of range
+12112	Stop.
+14417	list index out of range
+14418	Stop.
+16732	list index out of range
+16733	Stop.
+16743	list index out of range
+16744	Stop.
+18829	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+19014	list index out of range
+19015	Stop.
+21269	list index out of range
+21270	Stop.
+23533	list index out of range
+23534	Stop.
+25818	list index out of range
+25819	Stop.
+28094	list index out of range
+28095	Stop.
+30370	list index out of range
+30371	Stop.
+30382	list index out of range
+30383	Stop.
+30391	list index out of range
+30392	Stop.
+32662	list index out of range
+32663	Stop.
+32671	list index out of range
+32672	Stop.
+32681	list index out of range
+32682	Stop.
+34932	list index out of range
+34933	Stop.
+34942	list index out of range
+34943	Stop.
+34952	list index out of range
+34953	Stop.
+36042	Expecting value: line 1 column 1 (char 0)
+37251	list index out of range
+37252	Stop.
+37262	list index out of range
+37263	Stop.
+39547	list index out of range
+39548	Stop.
+41807	list index out of range
+41808	Stop.
+44138	list index out of range
+44139	Stop.
+44147	list index out of range
+44148	Stop.
+46432	list index out of range
+46433	Stop.
+48677	list index out of range
+48678	Stop.
+50995	list index out of range
+50996	Stop.
+51005	list index out of range
+51006	Stop.
+53255	list index out of range
+53256	Stop.
+53265	list index out of range
+53266	Stop.
