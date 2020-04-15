@@ -49,6 +49,7 @@ print(df.shape)
 
 # %%
 def update_emo(index, emo):
+    emo['time'] = str(datetime.now())
     try:
         with open(r'/home/alan/EDUR7072project/lyrics_emotion.json', 'r') as fn:
             emo_dict = json.load(fn)
