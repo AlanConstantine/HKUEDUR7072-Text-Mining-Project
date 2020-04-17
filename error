@@ -110,3 +110,11 @@
 61597	Stop.
 61607	list index out of range
 61608	Stop.
+61618	list index out of range
+61619	Stop.
+63662	('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',))
+63663	('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+63953	list index out of range
+63954	Stop.
+63966	list index out of range
+63967	Stop.
