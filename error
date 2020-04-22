@@ -147,3 +147,4 @@
 71197	Expecting value: line 2 column 1 (char 1)
 71428	list index out of range
 71429	Stop.
+71429	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 200}
