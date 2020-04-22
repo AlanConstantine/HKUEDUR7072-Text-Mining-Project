@@ -144,3 +144,6 @@
 69836	Stop.
 69844	list index out of range
 69845	Stop.
+71197	Expecting value: line 2 column 1 (char 1)
+71428	list index out of range
+71429	Stop.
