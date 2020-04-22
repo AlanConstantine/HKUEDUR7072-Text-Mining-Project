@@ -37,7 +37,7 @@ keys = [
         'jpctHohVPtW9QlezbIw4hZ8Ftwh8kXD14U7JlR0WRQo', # 274038499@qq.com
         'qrJoLzvIQqU1ygqtzWDw2JC59zkBsPqSzLLIeRSxLHA', # 562040899@qq.com
         'UtEqIoCXWJN5XiyfgpXJ7gg23LgOu7jVQjl36Xg7UmQ', # wgj0905@hku.hk
-	'sHyni9kN5Elhtrmb3Z10f5USPyyn9o0snPCzIqagafM' # liuhuan19951021@163.com
+        'sHyni9kN5Elhtrmb3Z10f5USPyyn9o0snPCzIqagafM' # liuhuan19951021@163.com
         ]
 
 
@@ -100,6 +100,14 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
         if 'message' in response:
             print('Stop at', str(index))
             update_error(str(index) + '\t' + str(response['message']))
+            break
+        if 'Error' in response:
+            print('Stop at', str(index))
+            update_error(str(index) + '\t' + str(response))
+            break
+        if 'emotion' not in response:
+            print('Stop at', str(index))
+            update_error(str(index) + '\t' + str(response))
             break
         finished_index = update_emo(index, response)
         print(finished_index, 'done: ', str(round(((index-1)/total)*100, 5)), str(datetime.now()))
