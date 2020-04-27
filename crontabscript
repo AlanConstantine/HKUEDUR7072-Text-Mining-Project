@@ -1,0 +1,8 @@
+
+first.
+n3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+      1 00 12 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
+            2 30 12 * * * python3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+                  3 00 19 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
+                        4 30 19 * * * python3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+                              5 59 23 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
