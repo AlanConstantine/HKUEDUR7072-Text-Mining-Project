@@ -580,3 +580,5 @@ Name: index, dtype: int64	'Series' objects are mutable, thus they cannot be hash
 Name: index, dtype: int64	'Series' objects are mutable, thus they cannot be hashed
 4997    4997
 Name: index, dtype: int64	'Series' objects are mutable, thus they cannot be hashed
+57369    57369
+Name: index, dtype: int64	Expecting value: line 1 column 1 (char 0)
