@@ -24,27 +24,27 @@ from sklearn.utils import shuffle
 import json
 
 import paralleldots
-paralleldots.set_api_key("OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI") # laualan@hku.hk
+paralleldots.set_api_key(
+    "OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI")  # laualan@hku.hk
 print('Current key:', 'OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI', 1)
 
 keys = [
-        'DwGe3alGduDGJnE1FT3O112wMDNJhZDnGysR0KFfZgY', # rlalan@outlook.com
-        'JIkATWugt8LIP3PbQrdm6cfm1hZ4DbouVoyw8oAQqhI', # 394414515@qq.com
-        'Vf9mBAl7wp0s8Fl43E9aDtVPOZhftIAv0pYJvIlYGD4', # 806124854@qq.com
-        '8gAwuDOEE92zakGfDXc6PoCtqhVop0htEnEd4IHFe0U', # yleun.lau@gmail.com
-        'xTNXoCxtbg36jCgT6ArKgyOPJtnJdf5QQpEEKYoSwu8', # alanconstantinelau@gmail.com
-        'INsEQXjCWuaZJQyzEbHg5Kw6C8liJiHf2DXOHqmHG70', # 122075300@qq.com
-        'jpctHohVPtW9QlezbIw4hZ8Ftwh8kXD14U7JlR0WRQo', # 274038499@qq.com
-        'qrJoLzvIQqU1ygqtzWDw2JC59zkBsPqSzLLIeRSxLHA', # 562040899@qq.com
-        'UtEqIoCXWJN5XiyfgpXJ7gg23LgOu7jVQjl36Xg7UmQ', # wgj0905@hku.hk
-        'sHyni9kN5Elhtrmb3Z10f5USPyyn9o0snPCzIqagafM' # liuhuan19951021@163.com
-        ]
+    'DwGe3alGduDGJnE1FT3O112wMDNJhZDnGysR0KFfZgY',  # rlalan@outlook.com
+    # 'JIkATWugt8LIP3PbQrdm6cfm1hZ4DbouVoyw8oAQqhI', # 394414515@qq.com
+    'Vf9mBAl7wp0s8Fl43E9aDtVPOZhftIAv0pYJvIlYGD4',  # 806124854@qq.com
+    # '8gAwuDOEE92zakGfDXc6PoCtqhVop0htEnEd4IHFe0U', # yleun.lau@gmail.com
+    'xTNXoCxtbg36jCgT6ArKgyOPJtnJdf5QQpEEKYoSwu8',  # alanconstantinelau@gmail.com
+    'INsEQXjCWuaZJQyzEbHg5Kw6C8liJiHf2DXOHqmHG70',  # 122075300@qq.com
+    'jpctHohVPtW9QlezbIw4hZ8Ftwh8kXD14U7JlR0WRQo',  # 274038499@qq.com
+    'qrJoLzvIQqU1ygqtzWDw2JC59zkBsPqSzLLIeRSxLHA',  # 562040899@qq.com
+    'UtEqIoCXWJN5XiyfgpXJ7gg23LgOu7jVQjl36Xg7UmQ',  # wgj0905@hku.hk
+    'sHyni9kN5Elhtrmb3Z10f5USPyyn9o0snPCzIqagafM'  # liuhuan19951021@163.com
+]
 
 
 # %%
 df = pd.read_csv('/home/alan/HKUEDUR7072-Text-Mining-Project/reindex_df.csv')
 print(df.shape)
-
 
 
 # %%
@@ -60,19 +60,20 @@ def update_emo(index, emo):
     with open('/home/alan/HKUEDUR7072-Text-Mining-Project/lyrics_emotion.json', 'w') as fp:
         json.dump(emo_dict, fp)
     return index
-        
+
+
 def update_error(index):
     with open(r'/home/alan/HKUEDUR7072-Text-Mining-Project/error', 'a') as fn:
         fn.write(str(index) + '\n')
-        
+
+
 def get_stopindex():
     try:
         with open(r'/home/alan/HKUEDUR7072-Text-Mining-Project/lyrics_emotion.json', 'r') as fn:
-                emo_dict = json.load(fn)
+            emo_dict = json.load(fn)
         return max(list(map(lambda e: int(e), list(emo_dict.keys()))))
     except Exception as e:
         return -1
-    
 
 
 # %%
@@ -110,7 +111,8 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
             update_error(str(index) + '\t' + str(response))
             break
         finished_index = update_emo(index, response)
-        print(finished_index, 'done: ', str(round(((index-1)/total)*100, 5)), str(datetime.now()))
+        print(finished_index, 'done: ', str(
+            round(((index-1)/total)*100, 5)), str(datetime.now()))
     except Exception as e:
         update_error(str(index) + '\t' + str(e))
         error_count += 1
@@ -118,6 +120,4 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
         pass
 
 print(error_count)
-
-
 
