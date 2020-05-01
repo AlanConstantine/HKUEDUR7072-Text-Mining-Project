@@ -24,9 +24,9 @@ from sklearn.utils import shuffle
 import json
 
 import paralleldots
-paralleldots.set_api_key(
-    "OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI")  # laualan@hku.hk
-print('Current key:', 'OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI', 1)
+paralleldots.set_api_key("Vo6Oh77LXmw5HXMu691RKQIZG03nY1zB9rsVTkhEHqE") # lrl818@qq.com
+    # "OwoCuujTTYS5o3Vrx0M4A7RevaHLs7uUHlUD3Afa0XI")  # laualan@hku.hk
+print('Current key:', 'Vo6Oh77LXmw5HXMu691RKQIZG03nY1zB9rsVTkhEHqE', 1)
 
 keys = [
     'DwGe3alGduDGJnE1FT3O112wMDNJhZDnGysR0KFfZgY',  # rlalan@outlook.com
