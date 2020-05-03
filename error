@@ -178,3 +178,4 @@
 77800	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 200}
 77800	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
 77800	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
+79422	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 200}
