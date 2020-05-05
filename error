@@ -184,3 +184,4 @@
 81037	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 200}
 81037	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
 81037	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
+82630	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 200}
