@@ -1612,3 +1612,4 @@ Current key: UtEqIoCXWJN5XiyfgpXJ7gg23LgOu7jVQjl36Xg7UmQ 7
 Current key: sHyni9kN5Elhtrmb3Z10f5USPyyn9o0snPCzIqagafM 8
 Stop at 1603
 4
+1604	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
