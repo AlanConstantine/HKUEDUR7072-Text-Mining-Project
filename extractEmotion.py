@@ -89,7 +89,9 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
     try:
         time.sleep(randtime)
         response = paralleldots.emotion(lyrics)
+        keyoutdate = ''
         if 'code' in response and key_count < len(keys):
+            keyoutdate = keys[key_count]
             key_count += 1
             print('Current key:', keys[key_count], key_count + 1)
             paralleldots.set_api_key(keys[key_count])
@@ -116,6 +118,8 @@ for index, lyrics in list(zip(index_list, lyric_emo))[get_stopindex() + 1:]:
     except Exception as e:
         update_error(str(index) + '\t' + str(e))
         error_count += 1
+        if 'Month' in str(e):
+            print('Out of date key:'.format(keyoutdate))
         print(e)
         pass
 
