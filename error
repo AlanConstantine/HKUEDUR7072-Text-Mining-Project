@@ -1627,3 +1627,4 @@ Stop at 1603
 5646	Expecting value: line 1 column 1 (char 0)
 5647	Expecting value: line 1 column 1 (char 0)
 7272	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
+7272	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
