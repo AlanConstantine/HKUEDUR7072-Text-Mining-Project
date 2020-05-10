@@ -1632,3 +1632,4 @@ Stop at 1603
 8984	HTTPSConnectionPool(host='apis.paralleldots.com', port=443): Max retries exceeded with url: /v4/emotion (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fca206d09b0>: Failed to establish a new connection: [Errno 110] Connection timed out',))
 10130	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
 10130	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
+10130	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
