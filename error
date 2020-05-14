@@ -1646,3 +1646,4 @@ Stop at 1603
 21653	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
 21653	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
 24528	{'Error': 'Monthy Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
+24528	{'Error': 'Daily Limit Exceeded. Please upgrade your account from your user dashboard at https://user.apis.paralleldots.com/user_dashboard', 'code': 403}
