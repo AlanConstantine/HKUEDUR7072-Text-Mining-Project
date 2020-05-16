@@ -1,0 +1,6 @@
+00 08 * * * python3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+59 11 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
+30 12 * * * python3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+00 19 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
+30 19 * * * python3 /home/alan/HKUEDUR7072-Text-Mining-Project/extractEmotion.py
+59 23 * * * sh /home/alan/HKUEDUR7072-Text-Mining-Project/gitpush.sh
