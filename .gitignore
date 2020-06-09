@@ -3,4 +3,5 @@
 */.ipynb_checkpoints/
 *.ipynb_checkpoints/*
 *log
-*.csv
+/json_bp
+/csv_bp
